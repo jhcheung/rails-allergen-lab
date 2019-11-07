@@ -1,0 +1,22 @@
+<h1>All Recipe</h1>
+
+<%= form_tag({ url: recipes_path }, { method: :get }) do %>
+
+  <h3><%= label_tag :min, "Filter by minimum number of ingredients:" %></h3>
+  <%= number_field_tag :min, value: params[:min] %>
+  <%= submit_tag "Filter" %>
+<% end %>
+
+<%= form_tag({ url: recipes_path }, { method: :get }) do %>
+
+  <h3><%= label_tag :max, "Filter by maximum number of ingredients:" %></h3>
+  <%= number_field_tag :max, value: params[:max] %>
+  <%= submit_tag "Filter" %>
+<% end %>
+
+
+<ul>
+    <%  @recipes.each do |recipe| %>
+        <li><%= recipe.title + " | " + recipe.ingredients.count.to_s %></li>
+    <% end %>
+</ul>

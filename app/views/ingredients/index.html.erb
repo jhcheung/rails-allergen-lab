@@ -1,0 +1,7 @@
+<h1>All Ingredients</h1>
+
+<ul>
+    <%  @ingredients.each do |ingredient| %>
+        <li><%= ingredient.name + " | " + ingredient.allergies.count.to_s %></li>
+    <% end %>
+</ul>
